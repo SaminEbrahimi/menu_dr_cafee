@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr.Coffee Menu</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Tahoma', sans-serif;
+      background-color: #2f2f2f;
+      color: white;
+      text-align: center;
+      direction: rtl;
+    }
+
+    /* --- Splash Screen --- */
+    #splash {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 9999;
+    }
+    #splash img {
+      width: 150px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+    #splash h1 {
+      font-family: "Georgia", serif;
+      font-size: 28px;
+      color: #333;
+      margin-top: 10px;
+    }
+    .loader {
+      border: 8px solid #f3f3f3;
+      border-top: 8px solid #ff5722;
+      border-right: 8px solid #4caf50;
+      border-bottom: 8px solid #2196f3;
+      border-left: 8px solid #ffc107;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1.2s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    header {
+      background-color: #1f1f1f;
+      padding: 20px;
+    }
+    header h1 {
+      font-family: "Brush Script MT", cursive;
+      font-size: 36px;
+      margin: 0;
+      color: #d4af37;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #333;
+      padding: 10px 0;
+      gap: 20px;
+    }
+    nav button {
+      background: #444;
+      border: none;
+      padding: 10px 20px;
+      font-size: 18px;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    nav button:hover {
+      background: #d4af37;
+      color: black;
+    }
+    .menu-section {
+      display: none;
+      margin-top: 30px;
+      padding: 20px;
+    }
+    .menu-section h2 {
+      color: #d4af37;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+    .menu-items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .item-card {
+      background: #444;
+      border-radius: 12px;
+      width: 200px;
+      padding: 15px;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .item-card:hover {
+      background: #d4af37;
+      color: black;
+    }
+    .item-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .item-card h3 {
+      margin: 8px 0 5px;
+      font-size: 20px;
+    }
+    .item-card .price {
+      font-size: 16px;
+      font-weight: bold;
+      color: #ffdd55;
+      margin-bottom: 8px;
+    }
+    .item-card p {
+      font-size: 14px;
+      color: #cccccc;
+    }
+  </style>
+</head>
+<body>
+  <!-- Splash Screen -->
+  <div id="splash">
+    <img src="photo_5983378125163187087_x.jpg" alt="لوگو کافه">
+    <div class="loader"></div>
+    <h1>دکترکافی</h1>
+  </div>
+
+  <!-- Main Page -->
+  <div id="main" style="display:none;">
+    <header>
+      <h1>Welcome to Dr.Coffee</h1>
+    </header>
+
+    <nav>
+      <button onclick="showMenu('hot')">بار گرم</button>
+      <button onclick="showMenu('cold')">بار سرد</button>
+      <button onclick="showMenu('dessert')">دسر</button>
+    </nav>
+
+    <div id="hot" class="menu-section">
+      <h2>بار گرم</h2>
+      <div class="menu-items">
+        <div class="item-card">
+          <img src="espresso.jpg" alt="اسپرسو">
+          <h3>اسپرسو</h3>
+          <div class="price">50,000 تومان</div>
+          <p>قهوه خالص، آب داغ</p>
+        </div>
+        <div class="item-card">
+          <img src="cappuccino.jpg" alt="کاپوچینو">
+          <h3>کاپوچینو</h3>
+          <div class="price">70,000 تومان</div>
+          <p>قهوه، شیر بخار داده، فوم شیر</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="cold" class="menu-section">
+      <h2>بار سرد</h2>
+      <div class="menu-items">
+        <div class="item-card">
+          <img src="ice-latte.jpg" alt="آیس لاته">
+          <h3>آیس لاته</h3>
+          <div class="price">65,000 تومان</div>
+          <p>قهوه، شیر، یخ</p>
+        </div>
+        <div class="item-card">
+          <img src="shake.jpg" alt="شیک شکلات">
+          <h3>شیک شکلات</h3>
+          <div class="price">80,000 تومان</div>
+          <p>شیر، بستنی شکلات، شکلات ذوب‌شده</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="dessert" class="menu-section">
+      <h2>دسر</h2>
+      <div class="menu-items">
+        <div class="item-card">
+          <img src="cheesecake.jpg" alt="چیزکیک">
+          <h3>چیزکیک</h3>
+          <div class="price">90,000 تومان</div>
+          <p>پنیر خامه‌ای، بیسکویت، مربا</p>
+        </div>
+        <div class="item-card">
+          <img src="brownie.jpg" alt="براونی">
+          <h3>براونی</h3>
+          <div class="price">75,000 تومان</div>
+          <p>شکلات، آرد، کره، تخم مرغ</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // نمایش منو بعد از اسپلش
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.getElementById("splash").style.display = "none";
+        document.getElementById("main").style.display = "block";
+      }, 3000);
+    });
+
+    // نمایش بخش‌ها
+    function showMenu(sectionId) {
+      let sections = document.querySelectorAll('.menu-section');
+      sections.forEach(sec => sec.style.display = 'none');
+      document.getElementById(sectionId).style.display = 'block';
+    }
+  </script>
+</body>
+</html>
